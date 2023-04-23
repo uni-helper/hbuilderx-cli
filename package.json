@@ -18,7 +18,7 @@
   "types": "./dist/index.d.ts",
   "bin": {
     "hbx": "./dist/cli.mjs",
-    "hbuilder-x": "./dist/cli.mjs"
+    "hbuilderx": "./dist/cli.mjs"
   },
   "files": [
     "dist"

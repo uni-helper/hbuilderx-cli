@@ -39,7 +39,7 @@ const { createHbuilderX } = require("@uni-helper/hbuilderx-cli");
 
 ```bash
 pnpm install -g @uni-helper/hbuilderx-cli
-hbx # or hbuilder-x
+hbx # or hbuilderx
 ```
 
 #### 配置
