@@ -1,8 +1,8 @@
 {
-  "name": "@uni-helper/hbuilder-x-cli",
+  "name": "@uni-helper/hbuilderx-cli",
   "version": "0.0.0",
   "description": "ES module for HBuilderX cli",
-  "repository": "https://github.com/uni-helper/hbuilder-x-cli",
+  "repository": "https://github.com/uni-helper/hbuilderx-cli",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
