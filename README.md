@@ -6,7 +6,7 @@
 [![License][license-src]][license-href]
 [![JSDocs][jsdocs-src]][jsdocs-href]
 
-This is my package description.
+**WIP** HBuilderX cli 的 nodejs 包装
 
 ## Usage
 
@@ -27,10 +27,10 @@ Import:
 
 ```js
 // ESM
-import {} from "@uni-helper/hbuilder-x-cli";
+import { createHbuilderX } from "@uni-helper/hbuilder-x-cli";
 
 // CommonJS
-const {} = require("@uni-helper/hbuilder-x-cli");
+const { createHbuilderX } = require("@uni-helper/hbuilder-x-cli");
 ```
 
 ## Development
