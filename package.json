@@ -6,6 +6,7 @@
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
+  "packageManager": "pnpm@8.1.1",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
