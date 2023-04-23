@@ -23,10 +23,12 @@
     "build": "unbuild",
     "dev": "vitest dev",
     "prepublishOnly": "pnpm run build",
-    "release": "bumpp"
+    "release": "bumpp",
+    "test": "vitest run --coverage"
   },
   "devDependencies": {
     "@types/node": "^18.15.13",
+    "@vitest/coverage-c8": "^0.30.1",
     "bumpp": "^9.1.0",
     "typescript": "^5.0.4",
     "unbuild": "^1.2.1",
