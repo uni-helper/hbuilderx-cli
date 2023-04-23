@@ -1,8 +1,8 @@
 {
   "name": "@uni-helper/hbuilder-x-cli",
   "version": "0.0.0",
-  "description": "",
-  "repository": "@uni-helper/hbuilder-x-cli",
+  "description": "ES module for HBuilderX cli",
+  "repository": "https://github.com/uni-helper/hbuilder-x-cli",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
@@ -16,10 +16,15 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "hbx": "./dist/cli.mjs",
+    "hbuilder-x": "./dist/cli.mjs"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
+    "hbx": "esno src/cli.ts",
     "build": "unbuild",
     "dev": "vitest dev",
     "prepublishOnly": "pnpm run build",
@@ -36,6 +41,7 @@
     "vitest": "^0.30.1"
   },
   "dependencies": {
+    "c12": "^1.4.1",
     "execa": "^7.1.1",
     "std-env": "^3.3.2"
   }

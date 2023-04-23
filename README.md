@@ -6,11 +6,9 @@
 [![License][license-src]][license-href]
 [![JSDocs][jsdocs-src]][jsdocs-href]
 
-**WIP** HBuilderX cli 的 nodejs 包装
+**WIP** HBuilderX cli 的 ES 模块
 
-## Usage
-
-Install package:
+## 安装
 
 ```sh
 # npm
@@ -23,7 +21,9 @@ yarn add @uni-helper/hbuilder-x-cli
 pnpm install @uni-helper/hbuilder-x-cli
 ```
 
-Import:
+## 使用
+
+### 作为模块
 
 ```js
 // ESM
@@ -33,19 +33,24 @@ import { createHbuilderX } from "@uni-helper/hbuilder-x-cli";
 const { createHbuilderX } = require("@uni-helper/hbuilder-x-cli");
 ```
 
-## Development
+### 命令行
 
-- Clone this repository
-- Install latest LTS version of [Node.js](https://nodejs.org/en/)
-- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
-- Install dependencies using `pnpm install`
-- Run interactive tests using `pnpm dev`
+`hbx` 是 HBuildeX cli 别名(alias), 用法请参考[文档](https://hx.dcloud.net.cn/cli/README)
 
-## License
+```bash
+pnpm install -g @uni-helper/hbuilder-x-cli
+hbx # or hbuilder-x
+```
 
-Made with 💛
+#### 配置
 
-Published under [MIT License](./LICENSE).
+命令行配置项使用 unjs/c12 自动从 cwd 中加载。 你可以使用 hbx.config.json, hbx.config.{ts,js,mjs,cjs} 或者 .hbxrc
+
+- **cli**: HBuildeX cli 的绝对路径，在 Window 下默认为自动从注册表发现，在 Macos 下默认为 `/Applications/HBuilderX.app/Contents/MacOS/cli`
+
+## 协议
+
+基于 [MIT](./LICENSE) 用 💛 发电
 
 <!-- Badges -->
 
