@@ -8,9 +8,10 @@ async function main() {
     name: 'hbx',
   })
   const options = resolveOptions(config ?? {})
+  const argv = process.argv.slice(2, process.argv.length)
   $({
     stdio: 'inherit',
-  })`${options.cli} ${process.argv.splice(2, 1)[0]}`
+  })`${options.cli} ${argv}`
 }
 
 main()
