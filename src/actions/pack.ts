@@ -3,7 +3,7 @@ import { $ } from 'execa'
 import type { Options } from '../types'
 import { decodeGbk, parseArgs } from '../utils'
 
-export interface IPack {
+export interface IPackPayload {
   /**
    * 打包命令帮助
    */
@@ -47,12 +47,12 @@ export interface IPack {
 export function createPackContext(options: Options) {
   const cli = options.cli
   let waitBuildTimer: NodeJS.Timeout
-  return function (config: IPack) {
+  return function (payload: IPackPayload) {
     const { stdout, kill } = $({
       encoding: null,
       buffer: true,
       stdin: 'pipe',
-    })`${cli} pack ${parseArgs(config)}`
+    })`${cli} pack ${parseArgs(payload)}`
     return new Promise<string[]>((resolve, reject) => {
       const downloadUrls: string[] = []
       waitBuildTimer = setTimeout(() => {

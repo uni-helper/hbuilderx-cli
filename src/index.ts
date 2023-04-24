@@ -6,6 +6,12 @@ import { resolveOptions } from './options'
 import type { UserOptions } from './types'
 
 export * from './config'
+export * from './types'
+export * from './options'
+export * from './actions/open'
+export * from './actions/pack'
+export * from './actions/project'
+export * from './actions/user'
 
 export function createHbuilderX(userOptions: UserOptions = {}) {
   const options = resolveOptions(userOptions)

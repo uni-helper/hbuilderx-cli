@@ -2,7 +2,7 @@ import { $ } from 'execa'
 import { decodeGbk, parseArgs } from '../utils'
 import type { Options } from '../types'
 
-export interface IUserLogin {
+export interface IUserLoginPayload {
   username: string
   password: string
 }
@@ -17,7 +17,7 @@ export function createUserContext(options: Options) {
         return matches[1]
       }
     },
-    login(payload: IUserLogin) {
+    login(payload: IUserLoginPayload) {
       const { stdout } = $({
         encoding: null,
       }).sync`${cli} user login ${parseArgs(payload)}`
