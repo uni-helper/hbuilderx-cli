@@ -60,7 +60,7 @@ hbx # or hbuilderx
 [npm-downloads-href]: https://npmjs.com/package/@uni-helper/hbuilderx-cli
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/@uni-helper/hbuilderx-cli?style=flat&colorA=18181B&colorB=F0DB4F
 [bundle-href]: https://bundlephobia.com/result?p=@uni-helper/hbuilderx-cli
-[license-src]: https://img.shields.io/github/license/@uni-helper/hbuilderx-cli.svg?style=flat&colorA=18181B&colorB=F0DB4F
-[license-href]: https://github.com/@uni-helper/hbuilderx-cli/blob/main/LICENSE
+[license-src]: https://img.shields.io/github/license/uni-helper/hbuilderx-cli.svg?style=flat&colorA=18181B&colorB=F0DB4F
+[license-href]: https://github.com/uni-helper/hbuilderx-cli/blob/main/LICENSE
 [jsdocs-src]: https://img.shields.io/badge/jsDocs.io-reference-18181B?style=flat&colorA=18181B&colorB=F0DB4F
 [jsdocs-href]: https://www.jsdocs.io/package/@uni-helper/hbuilderx-cli
