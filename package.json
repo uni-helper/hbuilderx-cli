@@ -1,17 +1,17 @@
 {
   "name": "@uni-helper/hbuilderx-cli",
-  "version": "0.0.0",
-  "description": "ES module for HBuilderX cli",
-  "repository": "https://github.com/uni-helper/hbuilderx-cli",
-  "license": "MIT",
-  "sideEffects": false,
   "type": "module",
+  "version": "0.0.0",
   "packageManager": "pnpm@8.1.1",
+  "description": "ES module for HBuilderX cli",
+  "license": "MIT",
+  "repository": "https://github.com/uni-helper/hbuilderx-cli",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -30,20 +30,25 @@
     "dev": "vitest dev",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp",
-    "test": "vitest run --coverage"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.13",
-    "@vitest/coverage-c8": "^0.30.1",
-    "bumpp": "^9.1.0",
-    "typescript": "^5.0.4",
-    "unbuild": "^1.2.1",
-    "vite": "^4.3.1",
-    "vitest": "^0.30.1"
+    "test": "pnpm lint & vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "c12": "^1.4.1",
     "execa": "^7.1.1",
     "std-env": "^3.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.5",
+    "@types/node": "^18.15.13",
+    "@vitest/coverage-c8": "^0.30.1",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.39.0",
+    "esno": "^0.16.3",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1",
+    "vite": "^4.3.1",
+    "vitest": "^0.30.1"
   }
 }

@@ -25,7 +25,7 @@ pnpm install @uni-helper/hbuilderx-cli
 
 ### 作为模块
 
-```js
+```ts
 // ESM
 import { createHbuilderX } from "@uni-helper/hbuilderx-cli";
 
