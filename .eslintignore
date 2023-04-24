@@ -2,3 +2,5 @@ node_modules
 coverage
 dist
 *.md
+pack.json
+.github/**
