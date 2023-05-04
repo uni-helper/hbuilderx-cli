@@ -2,11 +2,11 @@ import { $ } from 'execa'
 import type { Options } from '../types'
 import { decodeGbk, parseArgs } from '../utils'
 
-export interface IProjectOpenPayload {
+export interface ProjectOpenPayload {
   path: string
 }
 
-export interface IProjectClosePayload {
+export interface ProjectClosePayload {
   path: string
 }
 
@@ -21,14 +21,14 @@ export function createProjectContext(options: Options) {
       const matches = output.matchAll(/\d\s-\s(.*?)\s/gm)
       return [...matches].map(match => match[1])
     },
-    open(args: IProjectOpenPayload) {
+    open(args: ProjectOpenPayload) {
       const { stdout } = $({
         encoding: null,
       }).sync`${cli} project open ${parseArgs(args)}`
       const output = decodeGbk(stdout)
       return output.includes('项目导入成功')
     },
-    close(args: IProjectClosePayload) {
+    close(args: ProjectClosePayload) {
       const { stdout } = $({
         encoding: null,
       }).sync`${cli} project close ${parseArgs(args)}`

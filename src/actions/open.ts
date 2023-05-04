@@ -2,13 +2,13 @@ import { $ } from 'execa'
 import type { Options } from '../types'
 import { parseArgs } from '../utils'
 
-export interface IOpenPayload {
+export interface OpenPayload {
   file?: string
 }
 
 export function createOpenContext(options: Options) {
   const cli = `${options.cli}`
-  return function (payload: IOpenPayload = {}) {
+  return function (payload: OpenPayload = {}) {
     return $.sync`${cli} open ${parseArgs(payload)}`
   }
 }

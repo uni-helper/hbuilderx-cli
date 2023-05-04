@@ -3,7 +3,7 @@ import { $ } from 'execa'
 import type { Options } from '../types'
 import { decodeGbk, parseArgs } from '../utils'
 
-export interface IPackPayload {
+export interface PackPayload {
   /**
    * 打包命令帮助
    */
@@ -47,7 +47,7 @@ export interface IPackPayload {
 export function createPackContext(options: Options) {
   const cli = options.cli
   let waitBuildTimer: NodeJS.Timeout
-  return function (payload: IPackPayload) {
+  return function (payload: PackPayload) {
     const { stdout, kill } = $({
       encoding: null,
       buffer: true,
