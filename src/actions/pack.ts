@@ -68,7 +68,7 @@ export function createPackContext(options: Options) {
         }
         if (hasTask) {
           kill()
-          reject(new Error('cli 暂不支持重新排队，请等待云端打包完成后重试，或使用 HBuildX 编辑器打包'))
+          reject(new Error('cli 暂不支持重新排队，请等待云端打包完成后重试，或使用 HBuilder X 编辑器打包'))
         }
         const matches = optput.matchAll(/下载地址:\s(https:\/\/.*?)\s/gm)
         const match = [...matches].map(v => v[1])[0]

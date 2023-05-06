@@ -1,7 +1,6 @@
-import type { ExecaReturnBase } from 'execa'
 import { $ } from 'execa'
 import type { Options } from '../types'
-import { parseArgs } from '../utils'
+import { decodeGbk, parseArgs } from '../utils'
 
 export interface PublishAppResourcePayload {
   /**
@@ -122,11 +121,11 @@ export interface PublishH5Payload {
 }
 
 export interface PublishFunc {
-  (payload: PublishAppResourcePayload | PublishWgtPayload | PublishMpWeixinPayload | PublishH5Payload): ExecaReturnBase<string>
-  appResource: (payload: Omit<PublishAppResourcePayload, 'type' | 'platform'>) => ExecaReturnBase<string>
-  wgt: (payload: Omit<PublishWgtPayload, 'type' | 'platform'>) => ExecaReturnBase<string>
-  mpWeixin: (payload: Omit<PublishMpWeixinPayload, 'platform'>) => ExecaReturnBase<string>
-  h5: (payload: Omit<PublishH5Payload, 'platform'>) => ExecaReturnBase<string>
+  (payload: PublishAppResourcePayload | PublishWgtPayload | PublishMpWeixinPayload | PublishH5Payload): Promise<string>
+  appResource: (payload: Omit<PublishAppResourcePayload, 'type' | 'platform'>) => Promise<string>
+  wgt: (payload: Omit<PublishWgtPayload, 'type' | 'platform'>) => Promise<string>
+  mpWeixin: (payload: Omit<PublishMpWeixinPayload, 'platform'>) => Promise<string>
+  h5: (payload: Omit<PublishH5Payload, 'platform'>) => Promise<string>
 }
 
 export function createPublishContext(options: Options) {
@@ -134,7 +133,36 @@ export function createPublishContext(options: Options) {
   const publish: PublishFunc = (
     payload: PublishAppResourcePayload | PublishWgtPayload | PublishMpWeixinPayload | PublishH5Payload,
   ) => {
-    return $.sync`${cli} open ${parseArgs(payload)}`
+    const { stdout } = $({
+      encoding: null,
+      buffer: true,
+      stdin: 'pipe',
+    })`${cli} publish ${parseArgs(payload)}`
+    return new Promise<string>((resolve, reject) => {
+      let outputDir = ''
+      stdout?.on('data', (data) => {
+        const optput = decodeGbk(data)
+        const isFail = optput.includes('失败.')
+        const isSuccess = optput.includes('成功，路径为')
+        if (isFail) {
+          reject(optput)
+        }
+
+        if (isSuccess) {
+          const matches = optput.matchAll(/成功，路径为：(.*?)\s/gm)
+          const match = [...matches].map(v => v[1])[0]
+          if (match) {
+            outputDir = match
+          }
+        }
+
+        // eslint-disable-next-line no-console
+        console.log(`${optput}`)
+      })
+      stdout?.on('close', () => {
+        resolve(outputDir)
+      })
+    })
   }
 
   // add alias
